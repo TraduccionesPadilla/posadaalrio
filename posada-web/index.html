@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posada al Río — Hospedaje, Seminarios y Eventos · Isla de Maipo</title>
+<meta name="description" content="Acogedor hospedaje familiar en Isla de Maipo, para hasta 10 huéspedes. Piscina, tinaja de agua de vertiente, parrillas, huerto y animales de granja. Ideal para familias, eventos y seminarios.">
+<meta property="og:title" content="Posada al Río — Hospedaje en Isla de Maipo">
+<meta property="og:description" content="Casa de campo para hasta 10 personas. Piscina, tinaja, quinchos, huerto y naturaleza en el Cordón de Cantillana.">
+<meta property="og:image" content="images/hero.jpg">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --verde:#2f5d3a;
+    --verde-osc:#234a2d;
+    --oliva:#7a9e5e;
+    --madera:#b5793f;
+    --crema:#faf7f1;
+    --texto:#33372f;
+    --gris:#5f655a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:var(--texto);background:var(--crema);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:700;line-height:1.2;}
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  /* HEADER */
+  header{position:fixed;top:0;left:0;width:100%;z-index:50;transition:background .3s,box-shadow .3s;}
+  header.scrolled{background:var(--verde);box-shadow:0 4px 18px rgba(0,0,0,.18);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1140px;margin:0 auto;}
+  .nav img{height:60px;width:auto;}
+  .nav ul{display:flex;gap:26px;list-style:none;align-items:center;}
+  .nav a{color:#fff;text-decoration:none;font-size:.95rem;font-weight:500;letter-spacing:.3px;opacity:.92;}
+  .nav a:hover{opacity:1;}
+  .btn{display:inline-block;background:var(--madera);color:#fff;text-decoration:none;padding:11px 22px;border-radius:50px;font-weight:600;font-size:.92rem;transition:background .2s,transform .15s;border:none;cursor:pointer;}
+  .btn:hover{background:#9c6532;transform:translateY(-2px);}
+  .btn-wa{background:#25D366;}
+  .btn-wa:hover{background:#1eb959;}
+  .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
+    background:linear-gradient(rgba(35,55,35,.55),rgba(20,35,20,.65)),url('images/hero.jpg') center/cover no-repeat;}
+  .hero-inner{max-width:760px;padding:120px 24px 60px;}
+  .hero img.logo{height:200px;margin:0 auto 28px;width:auto;filter:drop-shadow(0 3px 12px rgba(0,0,0,.45));}
+  .hero h1{font-size:3.4rem;margin-bottom:12px;text-shadow:0 2px 18px rgba(0,0,0,.45);}
+  .hero .tag{font-size:1.25rem;letter-spacing:3px;text-transform:uppercase;color:#f0e6d2;margin-bottom:22px;font-family:'Segoe UI',sans-serif;font-weight:600;}
+  .hero p{font-size:1.12rem;color:#f3efe6;margin-bottom:32px;}
+  .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.6);}
+  .btn-ghost:hover{background:rgba(255,255,255,.24);}
+
+  section{padding:80px 0;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 48px;}
+  .section-head h2{font-size:2.3rem;color:var(--verde);margin-bottom:14px;}
+  .section-head .line{width:64px;height:3px;background:var(--madera);margin:0 auto 18px;border-radius:2px;}
+  .section-head p{color:var(--gris);font-size:1.08rem;}
+
+  /* ESPACIOS */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .card{background:#fff;border-radius:14px;padding:30px 26px;box-shadow:0 6px 22px rgba(60,80,50,.08);border:1px solid #eee5d6;transition:transform .2s,box-shadow .2s;}
+  .card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(60,80,50,.14);}
+  .card .ic{font-size:2rem;margin-bottom:14px;}
+  .card h3{color:var(--verde);font-size:1.3rem;margin-bottom:10px;}
+  .card p{color:var(--gris);font-size:.98rem;}
+
+  /* OFRECE (amenities) */
+  .ofrece{background:linear-gradient(rgba(35,55,35,.90),rgba(20,35,20,.92)),url('images/g_estar.jpg') center/cover no-repeat fixed;color:#fff;}
+  .ofrece .section-head h2{color:#fff;}
+  .ofrece .section-head p{color:#dce6d4;}
+  .amen-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .amen-list{list-style:none;columns:1;}
+  .amen-list li{padding:9px 0 9px 32px;position:relative;border-bottom:1px solid rgba(255,255,255,.14);font-size:1rem;}
+  .amen-list li::before{content:"✓";position:absolute;left:0;color:#a9d18c;font-weight:700;}
+  .amen-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:28px;}
+  .amen-box h3{color:#fff;font-size:1.35rem;margin-bottom:16px;}
+  .amen-box ul{list-style:none;}
+  .amen-box li{padding:7px 0 7px 28px;position:relative;color:#eaf2e3;}
+  .amen-box li::before{content:"•";position:absolute;left:6px;color:var(--madera);font-size:1.3rem;line-height:1;}
+
+  /* GALERIA */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .gallery figure{position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/3;}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .gallery figure:hover img{transform:scale(1.08);}
+  .gallery figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font-size:.85rem;padding:18px 12px 10px;opacity:0;transition:opacity .3s;}
+  .gallery figure:hover figcaption{opacity:1;}
+
+  /* NOSOTROS */
+  .nosotros .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .nosotros img{border-radius:14px;box-shadow:0 12px 30px rgba(60,80,50,.18);}
+  .nosotros h2{color:var(--verde);font-size:2.2rem;margin-bottom:18px;}
+  .nosotros p{color:var(--gris);margin-bottom:16px;font-size:1.06rem;}
+
+  /* UBICACION */
+  .ubic{background:#efeadd;}
+  .ubic .split{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
+  .ubic h2{color:var(--verde);font-size:2rem;margin-bottom:16px;}
+  .ubic p{color:var(--gris);margin-bottom:18px;}
+  .policy{background:#fff;border-left:4px solid var(--madera);border-radius:8px;padding:20px 24px;font-size:.95rem;color:var(--gris);}
+  .policy h4{color:var(--verde);margin-bottom:8px;font-family:'Segoe UI',sans-serif;font-size:1.05rem;}
+
+  /* CONTACTO / FOOTER */
+  footer{background:var(--verde-osc);color:#fff;padding:70px 0 30px;text-align:center;}
+  footer img{height:84px;margin:0 auto 24px;}
+  footer h2{font-size:2rem;margin-bottom:10px;}
+  footer .sub{color:#cdd9c4;margin-bottom:34px;}
+  .contacts{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+  .contacts a{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+    color:#fff;text-decoration:none;padding:14px 24px;border-radius:50px;font-weight:600;transition:background .2s;}
+  .contacts a:hover{background:rgba(255,255,255,.22);}
+  .contacts a.wa{background:#25D366;border-color:#25D366;}
+  .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:24px;color:#aebda4;font-size:.85rem;}
+
+  @media(max-width:860px){
+    .nav ul{position:fixed;top:0;right:-100%;height:100vh;width:72%;max-width:320px;background:var(--verde-osc);
+      flex-direction:column;justify-content:center;gap:28px;transition:right .3s;padding:40px;}
+    .nav ul.open{right:0;}
+    .menu-toggle{display:block;z-index:60;}
+    .hero h1{font-size:2.3rem;}
+    .hero img.logo{height:140px;}
+    .nav img{height:50px;}
+    .grid,.amen-wrap,.nosotros .split,.ubic .split{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <nav class="nav">
+    <img src="images/logo-blanco.png" alt="Posada al Río">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+    <ul id="menu">
+      <li><a href="#espacios">Espacios</a></li>
+      <li><a href="#ofrece">La posada ofrece</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a class="btn btn-wa" href="https://wa.me/56940024250?text=Hola%20Posada%20al%20R%C3%ADo%2C%20quiero%20consultar%20disponibilidad" target="_blank" rel="noopener">Reservar</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <img class="logo" src="images/logo-blanco.png" alt="Posada al Río">
+    <div class="tag">Hospedaje · Seminarios · Eventos</div>
+    <h1>Una escapada perfecta de la ciudad</h1>
+    <p>Acogedor hospedaje familiar en Isla de Maipo, ideal para hasta 10 huéspedes. Parrilladas en la terraza, piscina, tinaja al aire libre, huerto y animales de granja, rodeados de naturaleza.</p>
+    <div class="hero-btns">
+      <a class="btn btn-wa" href="https://wa.me/56940024250?text=Hola%20Posada%20al%20R%C3%ADo%2C%20quiero%20consultar%20disponibilidad" target="_blank" rel="noopener">💬 Reservar por WhatsApp</a>
+      <a class="btn btn-ghost" href="#galeria">Ver galería</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / ESPACIOS -->
+<section id="espacios">
+  <div class="container">
+    <div class="section-head">
+      <h2>Nuestros espacios</h2>
+      <div class="line"></div>
+      <p>Una casa de campo amplia y cómoda, pensada para disfrutar en familia o con amigos en cualquier temporada del año.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="ic">🏊</div><h3>Piscina</h3><p>Un amplio espacio de piscina con reposeras, baños y un quincho sombreado para descansar.</p></div>
+      <div class="card"><div class="ic">♨️</div><h3>Tinaja</h3><p>Tinaja exterior de acero inoxidable con agua de vertiente, para una experiencia exquisita en verano o invierno.</p></div>
+      <div class="card"><div class="ic">⚽</div><h3>Juegos</h3><p>Espacio de juegos con cancha de baby fútbol y juegos para los niños.</p></div>
+      <div class="card"><div class="ic">🍳</div><h3>Primer piso</h3><p>Amplio primer piso con cocina equipada, comedor, sala de estar y dos terrazas con parrón.</p></div>
+      <div class="card"><div class="ic">🛏️</div><h3>Segundo piso</h3><p>Dos piezas matrimoniales, un sofá cama de dos plazas y cuatro camarotes en otra habitación.</p></div>
+      <div class="card"><div class="ic">📺</div><h3>Comodidades</h3><p>Internet, proyector para cine en casa y calefacción a leña (bosca) para las noches frías.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA POSADA OFRECE -->
+<section class="ofrece" id="ofrece">
+  <div class="container">
+    <div class="section-head">
+      <h2>La posada ofrece</h2>
+      <div class="line"></div>
+      <p>Hospedaje en una maravillosa casa de campo y sus huertos, para grupos de hasta 10 personas, eventos y seminarios.</p>
+    </div>
+    <div class="amen-wrap">
+      <ul class="amen-list">
+        <li>2 habitaciones matrimoniales, 1 pieza con 4 camarotes y un sofá cama en el hall</li>
+        <li>Exclusiva tinaja caliente con agua de vertiente</li>
+        <li>Piscina a disposición</li>
+        <li>Baños amplios con duchas y camarines</li>
+        <li>Parrillas y quinchos independientes</li>
+        <li>Cocina completamente equipada</li>
+        <li>Calefacción, bosca y aire acondicionado</li>
+        <li>Internet y cine en su casa</li>
+        <li>Invernadero, huerta, gallinero, bosque frutal y más</li>
+        <li>Pet friendly (a menos que su mascota coma gallinas 🐔)</li>
+        <li>Check-in y check-out flexible</li>
+      </ul>
+      <div class="amen-box">
+        <h3>Servicios adicionales</h3>
+        <ul>
+          <li>Los famosos desayunos y almuerzos de Quinta Dimensión</li>
+          <li>Venta de productos locales</li>
+          <li>Turismo, guiados y recomendaciones de la zona</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-head">
+      <h2>Galería</h2>
+      <div class="line"></div>
+      <p>Siempre es diferente en cada temporada.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/g_hamaca.jpg" alt="Terraza con hamaca y vista" loading="lazy"><figcaption>Terraza con vista</figcaption></figure>
+      <figure><img src="images/g_tinaja.jpg" alt="Tinaja de agua de vertiente" loading="lazy"><figcaption>Tinaja al aire libre</figcaption></figure>
+      <figure><img src="images/g_juegos.jpg" alt="Zona de juegos" loading="lazy"><figcaption>Juegos para niños</figcaption></figure>
+      <figure><img src="images/g_granja.jpg" alt="Animales de granja" loading="lazy"><figcaption>Animales de granja</figcaption></figure>
+      <figure><img src="images/g_huerto.jpg" alt="Huerto y bosque frutal" loading="lazy"><figcaption>Huerto y bosque frutal</figcaption></figure>
+      <figure><img src="images/g_jardin.jpg" alt="Jardines" loading="lazy"><figcaption>Jardines</figcaption></figure>
+      <figure><img src="images/g_estero.jpg" alt="Naturaleza y agua" loading="lazy"><figcaption>Naturaleza y agua</figcaption></figure>
+      <figure><img src="images/g_estar.jpg" alt="Terraza de estar" loading="lazy"><figcaption>Espacios para descansar</figcaption></figure>
+      <figure><img src="images/g_palmeras.jpg" alt="Entorno natural" loading="lazy"><figcaption>Entorno natural</figcaption></figure>
+      <figure><img src="images/g_bienvenida.jpg" alt="Bienvenidos a Posada al Río" loading="lazy"><figcaption>Bienvenidos</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros" id="nosotros">
+  <div class="container">
+    <div class="split">
+      <img src="images/about.jpg" alt="Posada al Río, casa de campo">
+      <div>
+        <h2>Acerca de nosotros</h2>
+        <p>Bienvenidos a Posada al Río: un entorno tranquilo y cómodo para cualquier ocasión.</p>
+        <p>Nicolás es un traductor con el alma viajera que finalmente se instaló con su familia en Isla de Maipo hace 10 años, buscando en el proyecto de la Posada reunir sus mejores experiencias turísticas para crear algo distinto.</p>
+        <p>Hospedaje, seminarios y eventos en plena naturaleza, a pocos minutos de Santiago.</p>
+        <a class="btn" href="https://wa.me/56940024250?text=Hola%20Posada%20al%20R%C3%ADo%2C%20quiero%20consultar%20disponibilidad" target="_blank" rel="noopener" style="margin-top:8px;">Consultar disponibilidad</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACION -->
+<section class="ubic" id="ubicacion">
+  <div class="container">
+    <div class="split">
+      <div>
+        <h2>Nuestra dirección</h2>
+        <p>Naltagua, Isla de Maipo. Situada dentro del <strong>Cordón de Cantillana</strong>, sitio prioritario número uno para la conservación de la biodiversidad de la Región Metropolitana de Santiago.</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Posada+al+R%C3%ADo+Naltagua+Isla+de+Maipo" target="_blank" rel="noopener">📍 Cómo llegar</a>
+      </div>
+      <div class="policy">
+        <h4>Política de cancelación</h4>
+        <p><strong>Más de una semana de aviso:</strong> 80% de devolución de la reserva o cambio de fecha.</p>
+        <p style="margin:0;"><strong>Menos de una semana de aviso:</strong> 0% de devolución de la reserva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO / FOOTER -->
+<footer id="contacto">
+  <div class="container">
+    <img src="images/logo-blanco.png" alt="Posada al Río">
+    <h2>Contáctanos</h2>
+    <p class="sub">Reserva tu escapada o consulta por eventos y seminarios.</p>
+    <div class="contacts">
+      <a class="wa" href="https://wa.me/56940024250?text=Hola%20Posada%20al%20R%C3%ADo%2C%20quiero%20consultar%20disponibilidad" target="_blank" rel="noopener">💬 WhatsApp +56 9 4002 4250</a>
+      <a href="mailto:clpadilla@gmail.com">✉ clpadilla@gmail.com</a>
+      <a href="https://instagram.com/posadaalrio" target="_blank" rel="noopener">📷 @posadaalrio</a>
+    </div>
+    <div class="copy">© <span id="y"></span> Posada al Río · Isla de Maipo, Chile · Hospedaje, seminarios y eventos</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  var header=document.getElementById('header');
+  window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>60);});
+  var t=document.getElementById('menuToggle'),m=document.getElementById('menu');
+  t.addEventListener('click',function(){m.classList.toggle('open');});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');});});
+</script>
+</body>
+</html>
